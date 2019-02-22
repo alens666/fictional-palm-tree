@@ -12,7 +12,6 @@ namespace IctWizard.Models
         public int Id { get; set; }
 
         public string ProductName { get; set; }
-
         public int ProductPrice { get; set; }
 
         [DataType(DataType.Date)]

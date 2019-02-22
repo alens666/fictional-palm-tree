@@ -1,4 +1,4 @@
-﻿@model IctWizard.Models.ProductPart
+﻿@model IctWizard.ViewModel.AddProductViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,12 +12,12 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ProductId" />
-            <input type="hidden" asp-for="PartId" />
+            <input type="hidden" asp-for="ProductPart.ProductId" />
+            <input type="hidden" asp-for="ProductPart.PartId" />
             <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
+                <label asp-for="ProductPart.Quantity" class="control-label"></label>
+                <input asp-for="ProductPart.Quantity" class="form-control" />
+                <span asp-validation-for="ProductPart.Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

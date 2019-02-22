@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IctWizard.Context;
 using IctWizard.Models;
+using IctWizard.ViewModel;
 
 namespace IctWizard.Controllers
 {
@@ -59,28 +60,21 @@ namespace IctWizard.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Product.ProductPrice,Product.ProductName,PartId,Quantity")] ProductPart productPart)
+        public async Task<IActionResult> Create(AddProductViewModel addProductView)
         {
 
             if (ModelState.IsValid)
             {
-                _context.Add(productPart);
-                productPart.Product = new Product();
-                if (productPart.ProductId == productPart.Product.Id)
-                {
-                
-                }
-
+                _context.Add(addProductView.ProductPart);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["PartId"] = new SelectList(_context.Parts, "Id", "Description", productPart.PartId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "ProductName", productPart.ProductId);
-            return View(productPart);
+            ViewData["PartId"] = new SelectList(_context.Parts, "Id", "Description",addProductView.ProductPart.PartId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "ProductName", addProductView.ProductPart.ProductId);
+            return View(addProductView);
 
         }
-
         // GET: ProductParts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

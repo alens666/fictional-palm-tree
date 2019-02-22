@@ -34,3 +34,8 @@ C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\
 C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\ProductParts\Details.g.cshtml.cs
 C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\ProductParts\Edit.g.cshtml.cs
 C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\ProductParts\Index.g.cshtml.cs
+C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\Products\Create.g.cshtml.cs
+C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\Products\Delete.g.cshtml.cs
+C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\Products\Details.g.cshtml.cs
+C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\Products\Edit.g.cshtml.cs
+C:\Users\a.spago\source\repos\IctWizard\IctWizard\obj\Debug\netcoreapp2.2\Razor\Views\Products\Index.g.cshtml.cs
