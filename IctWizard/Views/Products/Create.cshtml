@@ -4,40 +4,82 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create product</h1>
 
-<h4>Product</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
+                <label asp-for="ProductName" class="control-label">Product name</label>
                 <input asp-for="ProductName" class="form-control" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductPrice" class="control-label"></label>
+                <label asp-for="ProductPrice" class="control-label">Product price</label>
                 <input asp-for="ProductPrice" class="form-control" />
                 <span asp-validation-for="ProductPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
+                <label asp-for="ReleaseDate" class="control-label">Release date</label>
                 <input asp-for="ReleaseDate" class="form-control" />
                 <span asp-validation-for="ReleaseDate" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label class="control-label">Add part to product</label>
+                    <input type="text" class="form-control" id = "partInput" style="margin-bottom: 5px"/>
+                    <div  class="btn btn-primary" id="plus">Add part</div>
+               
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="parts">
+                        <thead>
+                        <tr>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                 
+                </div>
+            </div>
+            <div class="form-group">
+                <hr/>
+                <input type="submit" value="Create product" class="btn btn-primary" style="margin-top: 10px"/>
             </div>
         </form>
     </div>
+
 </div>
+
+
+
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }
+
+<script>
+    jQuery('document').ready(function ($) {
+        $('#plus').click(function () {
+            inputValues = $('#partInput').val();
+            $("#parts").find("tbody").append("<tr><td>" +inputValues+ "<hr/></td></tr>"
+            );
+
+
+
+            console.log($("#parts").find("tbody"));
+        });
+    })
+</script>

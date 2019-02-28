@@ -18,8 +18,5 @@ namespace IctWizard.Models
         public DateTime ReleaseDate { get; set; }
 
         public IList<ProductPart> ProductParts { get; set; }
-
-
-
     }
 }

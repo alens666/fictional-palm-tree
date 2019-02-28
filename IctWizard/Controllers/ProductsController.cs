@@ -25,7 +25,7 @@ namespace IctWizard.Controllers
             return View(await _context.Products.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: Products/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,7 +34,8 @@ namespace IctWizard.Controllers
             }
 
             var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+                    .Include("ProductParts.Part")
+                    .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -46,12 +47,11 @@ namespace IctWizard.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            var parts = _context.Parts.ToList();
             return View();
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ProductName,ProductPrice,ReleaseDate")] Product product)
@@ -65,7 +65,7 @@ namespace IctWizard.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: Products/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,9 +81,7 @@ namespace IctWizard.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Products/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ProductName,ProductPrice,ReleaseDate")] Product product)
@@ -116,7 +114,7 @@ namespace IctWizard.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +132,7 @@ namespace IctWizard.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Products/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

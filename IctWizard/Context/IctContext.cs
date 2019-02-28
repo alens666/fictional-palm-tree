@@ -29,6 +29,7 @@ namespace IctWizard.Context
             modelBuilder.Entity<ProductPart>()
                 .HasKey(p => new {p.PartId, p.ProductId});
 
+                
             modelBuilder.Entity<SupplierPart>()
                 .HasKey(s => new {s.SupplierId, s.PartId});
 
@@ -47,7 +48,6 @@ namespace IctWizard.Context
             modelBuilder.Entity<Supplier>()
                 .HasMany(p => p.SupplierParts)
                 .WithOne(x => x.Supplier);
-
 
         }
     }

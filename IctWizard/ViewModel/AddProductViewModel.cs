@@ -8,6 +8,7 @@ namespace IctWizard.ViewModel
 {
     public class AddProductViewModel
     {
-        public ProductPart ProductPart { get; set; }
+        public Product Product { get; set; }
+        public IEnumerable<Part> Part { get; set; }
     }
 }

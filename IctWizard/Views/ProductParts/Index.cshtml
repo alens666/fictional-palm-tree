@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IctWizard.Models.ProductPart>
+﻿@model  IEnumerable< IctWizard.Models.ProductPart>
 
 @{
     ViewData["Title"] = "Index";
@@ -28,6 +28,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.ProductName)
@@ -41,11 +42,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Product.ReleaseDate)
             </td>
-
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-action="Edit" asp-route-id="@item.Product.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Product.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Product.Id">Delete</a>
             </td>
         </tr>
 }
